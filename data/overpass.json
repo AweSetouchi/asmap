@@ -195,15 +195,11 @@
         "garden": {
             "overpass": [
                 "way[\"leisure\"=\"garden\"]",
-                "way[\"landuse\"=\"grass\"]",
-                "way[\"natural\"=\"scrub\"]",
                 "way[\"landuse\"=\"farmland\"]",
                 "way[\"landuse\"=\"allotments\"]"
             ],
             "tags": [
                 "leisure=garden",
-                "landuse=grass",
-                "natural=scrub",
                 "landuse=farmland",
                 "landuse=allotments"
             ],

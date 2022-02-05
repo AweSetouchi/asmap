@@ -36,13 +36,14 @@ class modal_Activities {
             let chtml = "", updated = basic.formatDate(new Date(act.updatetime), ymd);
             let openflag = (act.id == openid) || (!openid && idx == 0 && Conf.detail_view.openfirst) ? true : false;
             newmode = act.id.split('/')[0];
+            let form = Conf.activities[newmode].form;
             clone.querySelector("div.collapse").id = "collapse" + idx;
             head.setAttribute("data-target", "#collapse" + idx);
             head.setAttribute("aria-expanded", openflag ? "true" : "false");
             if (openflag && openid !== undefined) head.setAttribute("id", "modal_" + openid);
             clone.querySelector("#collapse" + idx).classList[openflag ? "add" : "remove"]("show");
             clone.querySelector("span").innerHTML = act.title;
-            chtml = `<div class="float-right">${glot.get("update")} ${updated}[<a href="javascript:modal_activities.edit('${act.id}')">${glot.get("act_edit")}</a>]</div>`;
+            chtml = `<div class="float-right">${glot.get("update")} ${updated}[<a href="javascript:modal_activities.edit({id:'${act.id}',form:'${newmode}'})">${glot.get("act_edit")}</a>]</div>`;
             chtml += "<strong>" + glot.get("share_link") + ":</strong> ";
             chtml += `
             <button type="button" class="btn btn-warning pl-3 pr-3 pt-0 pb-0"
@@ -74,7 +75,6 @@ class modal_Activities {
                     break;
                 case "child":
                     glot_key = "children";
-                    let form = Conf.activities.child.form;
                     clone.querySelector("span").innerHTML = act.title;
                     Object.keys(form).forEach((key) => {
                         let gdata = act[form[key].gsheet];
@@ -101,9 +101,32 @@ class modal_Activities {
                     break;
                 default:    // event
                     glot_key = "activities";
-                    chtml += act.startdatetime == "" ? "" : glot.get("eventdates") + basic.formatDate(new Date(act.startdatetime), ymd) + " - " + basic.formatDate(new Date(act.enddatetime), ymd) + "<br>"
-                    chtml += (act.detail_url !== "" ? `<a href="${act.detail_url}">${act.detail_url}</a>` : "") + "<br><br>";
-                    chtml += act.body.replace(/\r?\n/g, '<br>') + "<br>" + (act.picture_url !== "" ? `<img class="w100" src="${act.picture_url}"><br>` : "<br>");
+                    clone.querySelector("span").innerHTML = act.title;
+                    Object.keys(form).forEach((key) => {
+                        let gdata = act[form[key].gsheet];
+                        switch (form[key].type) {
+                            case "select":
+                            case "text":
+                            case "textarea":
+                            case "quiz_choice":
+                            case "quiz_textarea":
+                                if (key !== "quiz_answer") chtml += `<strong>${glot.get(form[key].glot)}</strong><br>${gdata.replace(/\r?\n/g, '<br>')}<br><br>`;
+                                break;
+                            case "url":
+                                if (gdata !== "http://" && gdata !== "https://" && gdata !== "") {
+                                    chtml += `<string>${glot.get(form[key].glot)}</strong> <a href="${gdata}">${gdata}</a><br><br>`;
+                                };
+                                break;
+                            case "image_url":
+                                if (gdata !== "http://" && gdata !== "https://" && gdata !== "") {
+                                    chtml += `<img class="w100 m-1" src="${gdata}"><br>`;
+                                };
+                                break;
+                        };
+                    });
+                    // chtml += act.startdatetime == "" ? "" : glot.get("eventdates") + basic.formatDate(new Date(act.startdatetime), ymd) + " - " + basic.formatDate(new Date(act.enddatetime), ymd) + "<br>"
+                    // chtml += (act.detail_url !== "" ? `<a href="${act.detail_url}">${act.detail_url}</a>` : "") + "<br><br>";
+                    // chtml += act.body.replace(/\r?\n/g, '<br>') + "<br>" + (act.picture_url !== "" ? `<img class="w100" src="${act.picture_url}"><br>` : "<br>");
                     break;
             };
             body.innerHTML = chtml;
@@ -120,44 +143,45 @@ class modal_Activities {
     };
 
     // edit activity
-    edit(id) {			// p {id: undefined時はnew}
-        let title = glot.get(id === void 0 ? "act_add" : "act_edit");
+    edit(params) {			// p {id: undefined時はnew}
+        let title = glot.get(params.id === void 0 ? "act_add" : "act_edit");
         let html = "", act = Conf.activities;
-        let data = id === void 0 ? { osmid: cMapmaker.open_osmid } : poiCont.get_actid(id);
+        let data = params.id === void 0 ? { osmid: cMapmaker.open_osmid } : poiCont.get_actid(params.id);
 
         html = "<div class='container'>";
-        Object.keys(act.form).forEach(key => {
+        Object.keys(act[params.form].form).forEach(key => {
             let akey = "act_" + key;
             html += "<div class='row mb-1 align-items-center'>";
-            let defvalue = data[act.form[key].gsheet] || "";
-            switch (act.form[key].type) {
+            let defvalue = data[act[params.form].form[key].gsheet] || "";
+            let form = act[params.form].form[key];
+            switch (form.type) {
                 case "select":
-                    let selects = "", category = act.form[key].category;
-                    for (let idx in act.form[key].category) {
+                    let selects = "", category = form.category;
+                    for (let idx in form.category) {
                         let selected = category[idx] !== data.category ? "" : "selected";
                         selects += `<option value="${category[idx]}" ${selected}>${category[idx]}</option>`;
                     };
-                    html += `<div class='col-2 p-1'>${glot.get(`${act.form[key].glot}`)}</div>`;
+                    html += `<div class='col-2 p-1'>${glot.get(`${form.glot}`)}</div>`;
                     html += `<div class="col-10 p-1"><select id="${akey}" class="form-control form-control-sm">${selects}</select></div>`;
                     break;
                 case "textarea":
                 case "quiz_textarea":
-                    html += `<div class='col-2 p-1'>${glot.get(`${act.form[key].glot}`)}</div>`;
+                    html += `<div class='col-2 p-1'>${glot.get(`${form.glot}`)}</div>`;
                     html += `<div class="col-10 p-1"><textarea id="${akey}" rows="8" class="form-control form-control-sm">${defvalue}</textarea></div>`;
                     break;
                 case "quiz_choice":
                 case "text":
-                    html += `<div class='col-2 p-1'>${glot.get(`${act.form[key].glot}`)}</div>`;
+                    html += `<div class='col-2 p-1'>${glot.get(`${form.glot}`)}</div>`;
                     html += `<div class="col-10 p-1"><input type="text" id="${akey}" maxlength="80" class="form-control form-control-sm" value="${defvalue}"></div>`;
                     break;
                 case "quiz_hint_url":
                 case "image_url":
                 case "url":
-                    html += `<div class='col-2 p-1'>${glot.get(`${act.form[key].glot}`)}</div>`;
+                    html += `<div class='col-2 p-1'>${glot.get(`${form.glot}`)}</div>`;
                     html += `<div class="col-10 p-1"><input type="text" id="${akey}" class="form-control form-control-sm" value="${defvalue}"></div>`;
                     break;
                 case "comment":
-                    html += `<div class='col-12 p-1'><h5>${glot.get(`${act.form[key].glot}`)}</h5></div>`;
+                    html += `<div class='col-12 p-1'><h5>${glot.get(`${form.glot}`)}</h5></div>`;
                     break;
             };
             html += "</div>";
@@ -170,7 +194,7 @@ class modal_Activities {
         html += `<div class="col-2 p-1">${glot.get("act_passwd")}</div>`;
         html += `<div class="col-4 p-1"><input type="password" id="act_passwd" class="form-control form-control-sm"></input></div>`;
         html += `</div></div>`;
-        html += `<input type="hidden" id="act_id" value="${id === void 0 ? "" : id}"></input>`;
+        html += `<input type="hidden" id="act_id" value="${params.id === void 0 ? "" : params.id}"></input>`;
         html += `<input type="hidden" id="act_osmid" value="${data.osmid}"></input>`;
 
         winCont.modal_progress(0);
@@ -184,8 +208,9 @@ class modal_Activities {
                     winCont.modal_progress(10);
                     modal_activities.busy = true;
                     let senddata = { "id": act_id.value, "osmid": act_osmid.value };
-                    Object.keys(act.form).forEach(key => {
-                        if (act.form[key].gsheet !== "") senddata[act.form[key].gsheet] = document.getElementById("act_" + key).value
+                    Object.keys(act[params.form].form).forEach(key => {
+                        let field = act[params.form].form[key];
+                        if (field.gsheet !== "") senddata[field.gsheet] = document.getElementById("act_" + key).value
                     });
 
                     gSheet.get_salt(Conf.google.AppScript, userid).then((e) => {
@@ -195,7 +220,7 @@ class modal_Activities {
                     }).then((hashpw) => {
                         winCont.modal_progress(70);
                         console.log("hashpw: " + hashpw);
-                        return gSheet.set(Conf.google.AppScript, senddata, "child", userid, hashpw);
+                        return gSheet.set(Conf.google.AppScript, senddata, params.form, userid, hashpw);
                     }).then((e) => {
                         winCont.modal_progress(100);
                         if (e.status.indexOf("ok") > -1) {

@@ -21,16 +21,36 @@
         "phone_minZoom": 5,
         "maxZoom": 20,
         "zoomSnap": 0.5,
-        "iconViewZoom": 10,
+        "iconViewZoom": 14,
         "act_iconViewZoom": 5,
         "bookmark": true
     },
     "targets": [
-        "wayside_shrine"
+        "wayside_shrine",
+        "historic",
+        "garden",
+        "information",
+        "library",
+        "museum",
+        "park",
+        "station",
+        "worship",
+        "shop",
+        "restaurant"
     ],
     "listTable": {
         "targets": [
-            "wikipedia"
+            "wayside_shrine",
+            "historic",
+            "garden",
+            "information",
+            "library",
+            "museum",
+            "park",
+            "station",
+            "worship",
+            "shop",
+            "restaurant"
         ],
         "update_mode": ""
     },
@@ -40,7 +60,7 @@
     },
     "google": {
         "Analytics": "",
-        "AppScript": "",
+        "AppScript": "https://script.google.com/macros/s/AKfycbxXGhhBPuDPc31M6OaZQn70fkojeRKqcEm3kDCt3XpHCDIx0FCFHnQB6AJQQacoe9eWBQ/exec",
         "_AppScript": "https://script.google.com/macros/s/AKfycbyCq06UBWAId9MeUH6lZQRLs2kIRX5MMLCcYEn0EMk4zjrVC7u9qaaq1Ks1fBwzCvBKUA/exec",
         "targetName": "activity"
     },
@@ -84,6 +104,11 @@
         }
     ],
     "detail_menu": [
+        {
+            "glot-model": "act_add",
+            "linkto": "javascript:modal_activities.edit({form:'awesetouchi'})",
+            "divider": false
+        },
         {
             "glot-model": "button_close",
             "linkto": "javascript:winCont.modal_close()",

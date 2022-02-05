@@ -4,16 +4,17 @@
             "*": "-"
         },
         "amenity": {
-            "library": "図書館",
             "bar": "バー/酒場",
             "bench": "ベンチ",
             "cafe": "カフェ/喫茶店",
             "community_centre": "公民館",
             "drinking_water": "給水所/水栓",
             "fast_food": "ファーストフード",
+            "ferry_terminal":"フェリーターミナル",
             "food_court": "フードコート",
             "hospital": "病院",
             "ice_cream": "アイスクリーム店",
+            "library": "図書館",
             "pub": "パブ/居酒屋",
             "police": "警察署",
             "restaurant": "レストラン",
@@ -43,7 +44,9 @@
             "convenience": "コンビニエンスストア",
             "deli": "お弁当/惣菜屋",
             "dairy": "乳製品店",
+            "electronics": "家電販売屋",
             "farm": "農場直売店",
+            "florist": "花屋",
             "frozen_food": "冷凍食品専門店",
             "greengrocer": "八百屋",
             "gift": "土産屋",
@@ -207,6 +210,7 @@
             "archaeological_site":"遺跡・古墳",
             "castle": "お城",
             "memorial": "石碑",
+            "monument": "記念建造物",
             "wayside_shrine":"地蔵・道祖神"
         },
         "information": {
@@ -227,6 +231,7 @@
             "industrial": "工業"
         },
         "leisure": {
+            "garden": "庭",
             "pitch": "グラウンド",
             "park": "公園",
             "playground": "児童公園",

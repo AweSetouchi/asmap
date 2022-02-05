@@ -4,16 +4,17 @@
             "*": "-"
         },
         "amenity": {
-            "library": "library",
             "bar": "bar",
             "bench": "bench",
             "cafe": "cafe",
             "community_centre": "community center",
             "drinking_water": "drinking water",
             "fast_food": "fast food",
+            "ferry_terminal":"ferry terminal",
             "food_court": "food court",
             "hospital": "Hospital",
             "ice_cream": "ice cream",
+            "library": "library",
             "pub": "pub",
             "police": "police",
             "restaurant": "restaurant",
@@ -43,7 +44,9 @@
             "convenience": "convenience",
             "deli": "deli",
             "dairy": "dairy",
+            "electronics": "electronic",
             "farm": "farm",
+            "florist": "florist",
             "frozen_food": "frozen food",
             "greengrocer": "greengrocer",
             "gift": "gift",
@@ -204,10 +207,11 @@
             "museum": "museum"
         },
         "historic": {
-            "archaeological_site":"archaeological site",
+            "archaeological_site": "archaeological site",
             "castle": "castle",
             "memorial": "memorial",
-            "wayside_shrine":"wayside shrine"
+            "monument": "monument",
+            "wayside_shrine": "wayside shrine"
         },
         "information": {
             "board": "board",
@@ -227,6 +231,7 @@
             "industrial": "industrial"
         },
         "leisure": {
+            "garden": "garden",
             "pitch": "pitch",
             "park": "park",
             "playground": "playground",

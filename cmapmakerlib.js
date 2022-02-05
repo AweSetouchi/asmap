@@ -74,10 +74,15 @@ var poiCont = (function () {
 		list: function (targets) {              						// Grid.js向きの配列を出力
 			let pois = filter_geojson(targets), datas = []; 			// targetsに指定されたpoiのみフィルター
 			pois.geojson.forEach((node) => {
-				let tags = node.properties;
-				let name = tags.name == undefined ? "-" : tags.name;
-				let category = poiCont.get_catname(tags);
-				datas.push([node.id, "-", category, name]);
+				let tags = node.properties, data = [];
+				Conf.list.columns.poi_fields.forEach(key => {
+					if (key == "#category") {							// #は内部データを利用する意味
+						data.push(poiCont.get_catname(tags));			// category追加
+					} else {
+						data.push(tags[key] == undefined ? "-" : tags[key]);	// osmtag追加
+					};
+				});
+				datas.push(data);
 			});
 			if (targets.indexOf(Conf.google.targetName) > -1) {			// targets内にgooglesheetがある場合
 				adata.forEach((line) => {
@@ -90,7 +95,15 @@ var poiCont = (function () {
 								datas.push([line.id, `${line.yyyy}/${mm}/${dd}`, line.category, line.title]);
 								break;
 							default:
-								datas.push([line.id, basic.formatDate(new Date(line.updatetime), "YYYY/MM/DD"), line.category, line.title]);
+								Conf.list.columns.act_fields.forEach(key => {
+									let data = [];
+									if (key.indexOf("datetime") > -1) {							// フィール名に日時を含む場合
+										data.push(basic.formatDate(new Date(line.updatetime), "YYYY/MM/DD"));
+									} else {
+										data.push(line[fname] == undefined ? "-" : line[key]);	// gsheet追加
+									}
+								});
+								datas.push(data);
 								break;
 						};
 					};
@@ -126,7 +139,14 @@ class poiMarker {
 	static get_icon(tags) {		// get icon filename
 		let keyn = Conf.category_keys.find(key => (tags[key] !== undefined) && key !== "*");
 		keyn = keyn == undefined ? "*" : keyn;		// カテゴリに無いPOIへの対応
-		return Conf.marker_tag[keyn][tags[keyn]];
+		let keyv = tags[keyn] == undefined ? "*" : tags[keyn];
+		try {
+			let icon = Conf.marker_tag[keyn][keyv];
+			return icon == undefined ? Conf.marker_tag['*']['*'] : icon;
+		} catch {
+			console.log("poiMarker.get_icon: no icon");
+			return Conf.marker_tag['*']['*'];
+		};
 	};
 
 	static set(target, actonly) {								// Poi表示
@@ -141,7 +161,7 @@ class poiMarker {
 				let span_width = name !== "" ? name.length * Conf.effect.text.size : 0;
 				let css_name = actlists.length > 0 ? "icon_attention" : "icon_normal";
 				size = parseInt(basic.getStyleSheetValue(css_name, "height"));
-				if (actlists.length > 0) html += `<img class="attention" src="./image/attention_noframe.svg">`;
+				// if (actlists.length > 0) html += `<img class="attention" src="./image/attention_noframe.svg">`;
 				html += `<img class="${css_name}" src="./${Conf.icon.path}/${poiMarker.get_icon(tags)}" icon-name="${name}">`;
 				let span = `<span class="icon" style="font-size: ${Conf.effect.text.size}px">${name}</span>`;
 				if (name !== "" && Conf.effect.text.view) html += span;
@@ -348,6 +368,12 @@ class listTable {
 			row.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 		}
 	}
+
+	static #category_filter(result, keyword) {						// 指定したキーワードで絞り込み
+		return result.filter((row) => {
+			return row.join(',').indexOf(keyword) > -1;
+		});
+	};
 
 	static #filter(result, keyword) {						// 指定したキーワードで絞り込み
 		return result.filter((row) => {

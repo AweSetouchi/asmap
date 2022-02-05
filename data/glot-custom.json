@@ -1,15 +1,15 @@
 {
 	"title": {
-		"ja": "阿波瀬戸内マップ",
-		"en": "Awa Setouchi Map"
+		"ja": "AweSetouchi Map",
+		"en": "AweSetouchi Map"
 	},
 	"subtitle": {
 		"ja": "Powered by Community Map Maker",
 		"en": "Powered by Community Map Maker"
 	},
 	"about": {
-		"ja": "阿波瀬戸内マップについて",
-		"en": "about Awa Setouchi Map"
+		"ja": "AweSetouchi Mapについて",
+		"en": "about AweSetouchi Map"
 	},
 	"owner": {
 		"ja": "コミュニティマップメーカー開発サイト",
@@ -20,8 +20,8 @@
 		"en": "Terms of Use"
 	},
 	"licence_message": {
-		"ja": "阿波瀬戸内マップのデータはOpenStreetMapと個々人の感想などを組み合わせています。<br>OpenStreetMap以外はオープンデータでは無いのでご入用の際はお問い合わせください。",
-		"en": "The data of Awa Setouchi Map is a combination of OpenStreetMap and individual impressions. <br>Other than OpenStreetMap, it is not open data, so please contact us when you need it."
+		"ja": "AweSetouchi MapのデータはOpenStreetMapと個々人の感想などを組み合わせています。<br>OpenStreetMap以外はオープンデータでは無いのでご入用の際はお問い合わせください。",
+		"en": "The data of AweSetouchi Map is a combination of OpenStreetMap and individual impressions. <br>Other than OpenStreetMap, it is not open data, so please contact us when you need it."
 	},
 	"more_message": {
 		"ja": "",
@@ -60,8 +60,8 @@
 		"en": "Detail"
 	},
 	"act_official_url": {
-		"ja": "草津おみやげラボURL",
-		"en": "Kusatsu Omiyage Labo URL"
+		"ja": "公式サイトURL",
+		"en": "Public Site URL"
 	},
 	"act_recommend_url": {
 		"ja": "オススメURL",

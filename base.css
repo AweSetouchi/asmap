@@ -77,7 +77,7 @@ img.icon_normal {
 }
 
 img.icon_attention {
-    background: url("./image/icon_circle.svg");
+    background: url("./image/icon_circle_attention.svg");
     background-size: cover;
     float: left;
     padding: 8px;

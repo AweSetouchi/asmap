@@ -4,16 +4,17 @@
             "*": "marker-stroked.svg"
         },
         "amenity": {
-            "library": "library.svg",
             "bar": "bar.svg",
             "bench": "bench.svg",
             "cafe": "cafe.svg",
             "community_centre": "town-hall.svg",
             "drinking_water": "drinking-water.svg",
             "fast_food": "fast-food.svg",
+            "ferry_terminal": "ferry.svg",
             "food_court": "restaurant.svg",
             "hospital": "hospital.svg",
             "ice_cream": "ice-cream.svg",
+            "library": "library.svg",
             "pub": "beer.svg",
             "police": "police.svg",
             "restaurant": "restaurant.svg",
@@ -43,7 +44,9 @@
             "convenience": "shopping-basket.svg",
             "deli": "meat.svg",
             "dairy": "cheese.svg",
+            "electronics": "electronic.svg",
             "farm": "apple-alt.svg",
+            "florist": "florist.svg",
             "frozen_food": "shop.svg",
             "greengrocer": "carrot.svg",
             "gift": "gift.svg",
@@ -118,6 +121,7 @@
             "archaeological_site": "archaeological-site.svg",
             "castle": "castle-JP.svg",
             "memorial": "monument.svg",
+            "monument": "monument.svg",
             "wayside_shrine": "ojizou.svg"
         },
         "information": {
@@ -138,6 +142,7 @@
             "industrial": "industry.svg"
         },
         "leisure": {
+            "garden": "garden-centre.svg",
             "pitch": "pitch.svg",
             "park": "tree_and_bench.svg",
             "playground": "playground.svg",
