@@ -2,8 +2,8 @@
     "default": {
         "keep_default_view": false,
         "default_view": [
-            37.169,
-            137.157
+            34.3749,
+            133.8307
         ],
         "maxbounds": "",
         "_maxbounds": [
@@ -16,7 +16,7 @@
                 136.11914
             ]
         ],
-        "initZoom": 5.5,
+        "initZoom": 11,
         "pc_minZoom": 5,
         "phone_minZoom": 5,
         "maxZoom": 20,
