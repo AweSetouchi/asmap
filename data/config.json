@@ -26,6 +26,7 @@
         "bookmark": true
     },
     "targets": [
+        "forest",
         "wayside_shrine",
         "historic",
         "garden",
@@ -36,21 +37,12 @@
         "station",
         "worship",
         "shop",
-        "restaurant"
+        "restaurant",
+        "water"
     ],
     "listTable": {
         "targets": [
-            "wayside_shrine",
-            "historic",
-            "garden",
-            "information",
-            "library",
-            "museum",
-            "park",
-            "station",
-            "worship",
-            "shop",
-            "restaurant"
+            "activity"
         ],
         "update_mode": ""
     },
@@ -61,7 +53,6 @@
     "google": {
         "Analytics": "",
         "AppScript": "https://script.google.com/macros/s/AKfycbxXGhhBPuDPc31M6OaZQn70fkojeRKqcEm3kDCt3XpHCDIx0FCFHnQB6AJQQacoe9eWBQ/exec",
-        "_AppScript": "https://script.google.com/macros/s/AKfycbyCq06UBWAId9MeUH6lZQRLs2kIRX5MMLCcYEn0EMk4zjrVC7u9qaaq1Ks1fBwzCvBKUA/exec",
         "targetName": "activity"
     },
     "splash": {

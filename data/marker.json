@@ -8,6 +8,7 @@
             "bench": "bench.svg",
             "cafe": "cafe.svg",
             "community_centre": "town-hall.svg",
+            "clock": "clock.svg",
             "drinking_water": "drinking-water.svg",
             "fast_food": "fast-food.svg",
             "ferry_terminal": "ferry.svg",
@@ -15,15 +16,19 @@
             "hospital": "hospital.svg",
             "ice_cream": "ice-cream.svg",
             "library": "library.svg",
-            "pub": "beer.svg",
-            "police": "police.svg",
-            "restaurant": "restaurant.svg",
-            "vending_machine": "vending_machine.svg",
             "place_of_worship": "place-of-worship.svg",
+            "police": "police.svg",
             "post_box": "post_box.svg",
             "post_office": "post-JP.svg",
+            "pub": "beer.svg",
+            "restaurant": "restaurant.svg",
             "school": "school-JP.svg",
-            "theatre": "theatre.svg"
+            "shelter": "shelter.svg",
+            "telephone": "telephone.svg",
+            "townhall": "town-hall.svg",
+            "theatre": "theatre.svg",
+            "toilets": "toilet.svg",
+            "vending_machine": "vending_machine.svg"
         },
         "assembly_point:tsunami": {
             "yes": "shelter.svg"
@@ -32,36 +37,49 @@
             "animal": "veterinary.svg"
         },
         "shop": {
+            "agrarian": "agrarian.svg",
             "alcohol": "alcohol-shop.svg",
             "bakery": "bakery.svg",
             "beverages": "bottles.svg",
+            "books": "book_store.svg",
+            "bicycle": "bicycle.svg",
             "brewing_supplies": "storage_fermenter.svg",
             "butcher": "cleaver.svg",
             "cheese": "cheese.svg",
             "chocolate": "confectionery.svg",
             "coffee": "hot_drink_cup.svg",
+            "car": "car.svg",
+            "car_parts": "car-repair.svg",
             "confectionery": "confectionery.svg",
             "convenience": "shopping-basket.svg",
             "deli": "meat.svg",
             "dairy": "cheese.svg",
+            "dry_cleaning": "clothes_hanger.svg",
             "electronics": "electronic.svg",
             "farm": "apple-alt.svg",
             "florist": "florist.svg",
             "frozen_food": "shop.svg",
+            "funeral_directors": "cemetery.svg",
             "greengrocer": "carrot.svg",
             "gift": "gift.svg",
+            "hairdresser": "hairdresser.svg",
             "health_food": "shop.svg",
             "ice_cream": "ice-cream.svg",
+            "kiosk": "store.svg",
+            "mall": "shopping_mall.svg",
+            "motorcycle": "motorcycle.svg",
             "pasta": "restaurant.svg",
             "pastry": "bakery.svg",
             "seafood": "restaurant-seafood.svg",
             "spices": "spice_bottle.svg",
+            "tobacco": "pipe.svg",
             "tea": "teahouse.svg",
             "water": "water.svg",
             "wine": "alcohol-shop.svg",
-            "kiosk": "store.svg",
             "supermarket": "grocery.svg",
-            "variety_store": "shop.svg"
+            "variety_store": "shop.svg",
+            "doityourself": "tools.svg",
+            "appliance": "laundry.svg"
         },
         "species": {
             "Cherry blossom": "sakura.svg",
@@ -69,7 +87,9 @@
             "Cerasus × yedoensis": "sakura.svg"
         },
         "natural": {
-            "tree": "park.svg"
+            "tree": "park.svg",
+            "water": "water.svg",
+            "wood": "park-alt1.svg"
         },
         "emergency": {
             "fire_extinguisher": "fire-extinguisher.svg",
@@ -134,19 +154,27 @@
         },
         "man_made": {
             "torii": "shinto.svg",
-            "lamp": "lantern.svg"
+            "lamp": "lantern.svg",
+            "tower": "Emoji_Black_bell2.svg"
         },
         "landuse": {
             "farmland": "farm.svg",
             "religious": "wikipedia.svg",
-            "industrial": "industry.svg"
+            "industrial": "industry.svg",
+            "forest": "park-alt1.svg",
+            "orchard": "park.svg",
+            "aquaculture": "aquarium.svg",
+            "reservoir": "water.svg",
+            "grass": "lawn.svg",
+            "recreation_ground": "pitch.svg"
         },
         "leisure": {
+            "amusement_arcade": "gaming.svg",
             "garden": "garden-centre.svg",
             "pitch": "pitch.svg",
             "park": "tree_and_bench.svg",
             "playground": "playground.svg",
-            "amusement_arcade": "gaming.svg"
+            "swimming_pool": "swimming.svg"
         },
         "railway": {
             "station": "train.svg"

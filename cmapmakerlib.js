@@ -95,12 +95,12 @@ var poiCont = (function () {
 								datas.push([line.id, `${line.yyyy}/${mm}/${dd}`, line.category, line.title]);
 								break;
 							default:
+								let data = [];
 								Conf.list.columns.act_fields.forEach(key => {
-									let data = [];
 									if (key.indexOf("datetime") > -1) {							// フィール名に日時を含む場合
 										data.push(basic.formatDate(new Date(line.updatetime), "YYYY/MM/DD"));
 									} else {
-										data.push(line[fname] == undefined ? "-" : line[key]);	// gsheet追加
+										data.push(line[key] == undefined ? "-" : line[key]);	// gsheet追加
 									}
 								});
 								datas.push(data);

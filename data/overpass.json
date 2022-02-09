@@ -1,7 +1,7 @@
 {
     "osm": {
-        "*":{
-            "tags":[],
+        "*": {
+            "tags": [],
             "views": [
                 "name",
                 "operator"
@@ -44,6 +44,22 @@
             ],
             "tags": [
                 "shop"
+            ],
+            "views": [
+                "name",
+                "operator"
+            ]
+        },
+        "forest": {
+            "overpass": [
+                "way[\"natural\"=\"wood\"]",
+                "way[\"landuse\"=\"forest\"]",
+                "relation[\"natural\"=\"wood\"]",
+                "relation[\"landuse\"=\"forest\"]"
+            ],
+            "tags": [
+                "natural=wood",
+                "landuse=forest"
             ],
             "views": [
                 "name",
@@ -147,6 +163,19 @@
                 "operator"
             ]
         },
+        "telephone": {
+            "overpass": [
+                "node[\"amenity\"=\"telephone\"]",
+                "way[\"amenity\"=\"telephone\"]"
+            ],
+            "tags": [
+                "amenity=telephone"
+            ],
+            "views": [
+                "name",
+                "operator"
+            ]
+        },
         "theatre": {
             "overpass": [
                 "node[\"amenity\"=\"theatre\"]",
@@ -179,13 +208,28 @@
         "park": {
             "overpass": [
                 "node[\"leisure\"=\"park\"]",
+                "way[\"leisure\"=\"park\"]",
                 "node[\"leisure\"=\"playground\"]",
                 "way[\"leisure\"=\"playground\"]",
-                "way[\"leisure\"=\"park\"]"
+                "node[\"amenity\"=\"shelter\"]",
+                "way[\"amenity\"=\"shelter\"]",
+                "node[\"amenity\"=\"clock\"]",
+                "node[\"amenity\"=\"bench\"]",
+                "way[\"amenity\"=\"bench\"]",
+                "node[\"man_made\"=\"tower\"]",
+                "way[\"man_made\"=\"tower\"]",
+                "node[\"man_made\"=\"drinking_water\"]",
+                "way[\"landuse\"=\"recreation_ground\"]"
             ],
             "tags": [
                 "leisure=park",
-                "leisure=playground"
+                "leisure=playground",
+                "amenity=shelter",
+                "amenity=clock",
+                "amenity=bench",
+                "tower:type=bell_tower",
+                "amenity=drinking_water",
+                "landuse=recreation_ground"
             ],
             "views": [
                 "name",
@@ -196,25 +240,28 @@
             "overpass": [
                 "way[\"leisure\"=\"garden\"]",
                 "way[\"landuse\"=\"farmland\"]",
-                "way[\"landuse\"=\"allotments\"]"
+                "way[\"landuse\"=\"allotments\"]",
+                "way[\"landuse\"=\"orchard\"]",
+                "way[\"landuse\"=\"aquaculture\"]"
             ],
             "tags": [
                 "leisure=garden",
                 "landuse=farmland",
-                "landuse=allotments"
+                "landuse=allotments",
+                "landuse=orchard",
+                "landuse=aquaculture"
             ],
             "views": [
                 "name",
                 "operator"
             ]
         },
-        "information":{
+        "information": {
             "overpass": [
                 "node[\"tourism\"=\"information\"]",
                 "way[\"tourism\"=\"information\"]"
             ],
             "tags": [
-                "historic",
                 "tourism=information"
             ],
             "views": [
@@ -247,6 +294,21 @@
             "views": [
                 "name",
                 "operator"
+            ]
+        },
+        "water": {
+            "overpass": [
+                "way[\"natural\"=\"water\"]",
+                "relation[\"natural\"=\"water\"]",
+                "way[\"landuse\"=\"reservoir\"]"
+            ],
+            "tags": [
+                "natural=water",
+                "landuse=reservoir"
+            ],
+            "views": [
+                "name",
+                "religion"
             ]
         },
         "worship": {
@@ -285,6 +347,33 @@
             "tags": [
                 "public_transport=station",
                 "railway=station"
+            ],
+            "views": [
+                "name",
+                "operator"
+            ]
+        },
+        "swimming_pool": {
+            "overpass": [
+                "node[\"leisure\"=\"swimming_pool\"]",
+                "way[\"leisure\"=\"swimming_pool\"]",
+                "relation[\"leisure\"=\"swimming_pool\"]"
+            ],
+            "tags": [
+                "leisure=swimming_pool"
+            ],
+            "views": [
+                "name",
+                "operator"
+            ]
+        },
+        "toilets": {
+            "overpass": [
+                "node[\"amenity\"=\"toilets\"]",
+                "way[\"amenity\"=\"toilets\"]"
+            ],
+            "tags": [
+                "amenity=toilets"
             ],
             "views": [
                 "name",

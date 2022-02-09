@@ -8,22 +8,27 @@
             "bench": "bench",
             "cafe": "cafe",
             "community_centre": "community center",
+            "clock": "clock",
             "drinking_water": "drinking water",
             "fast_food": "fast food",
-            "ferry_terminal":"ferry terminal",
+            "ferry_terminal": "ferry terminal",
             "food_court": "food court",
             "hospital": "Hospital",
             "ice_cream": "ice cream",
             "library": "library",
-            "pub": "pub",
-            "police": "police",
-            "restaurant": "restaurant",
-            "vending_machine": "vending machine",
             "place_of_worship": "place of worship",
+            "police": "police",
             "post_box": "POST box",
             "post_office": "POST Office",
-            "school": "School",
-            "theatre": "Theatre"
+            "pub": "pub",
+            "restaurant": "restaurant",
+            "school": "school",
+            "shelter": "shelter",
+            "telephone": "telephone",
+            "townhall": "town hall",
+            "theatre": "theatre",
+            "toilets": "toilets",
+            "vending_machine": "vending machine"
         },
         "assembly_point:tsunami": {
             "yes": "tsunami evacuation"
@@ -32,11 +37,16 @@
             "animal": "animal"
         },
         "shop": {
+            "agrarian": "agrarian",
             "alcohol": "alcohol",
             "bakery": "bakery",
             "beverages": "beverages",
+            "books": "books",
+            "bicycle": "bicycle",
             "brewing_supplies": "brewing supplies",
             "butcher": "butcher",
+            "car": "car",
+            "car_parts": "car parts",
             "cheese": "cheese",
             "chocolate": "chocolate",
             "coffee": "coffee",
@@ -44,24 +54,32 @@
             "convenience": "convenience",
             "deli": "deli",
             "dairy": "dairy",
+            "dry_cleaning": "dry cleaning",
             "electronics": "electronic",
             "farm": "farm",
             "florist": "florist",
             "frozen_food": "frozen food",
+            "funeral_directors": "cemetery",
             "greengrocer": "greengrocer",
             "gift": "gift",
+            "hairdresser": "hairdresser",
             "health_food": "health food",
             "ice_cream": "ice cream",
+            "kiosk": "kiosk",
+            "mall": "shopping mall",
+            "motorcycle": "motorcycle",
             "pasta": "pasta",
             "pastry": "pastry",
             "seafood": "eafood",
             "spices": "spices",
+            "tobacco": "pipe",
             "tea": "tea",
             "water": "water",
             "wine": "wine",
-            "kiosk": "kiosk",
             "supermarket": "supermarket",
-            "variety_store": "variety"
+            "variety_store": "variety",
+            "doityourself": "doityourself",
+            "appliance": "appliance"
         },
         "cuisine": {
             "american": "american",
@@ -158,7 +176,9 @@
             "Cerasus × yedoensis": "sakura"
         },
         "natural": {
-            "tree": "tree"
+            "tree": "tree",
+            "water": "water",
+            "wood": "wood"
         },
         "emergency": {
             "fire_extinguisher": "extinguisher",
@@ -223,19 +243,27 @@
         },
         "man_made": {
             "torii": "torii",
-            "lamp": "lantern"
+            "lamp": "lantern",
+            "tower": "tower"
         },
         "landuse": {
             "farmland": "farmland",
             "religious": "religious",
-            "industrial": "industrial"
+            "industrial": "industrial",
+            "forest": "forest",
+            "orchard": "orchard",
+            "aquaculture": "aquaculture",
+            "reservoir": "reservoir",
+            "grass": "grass",
+            "recreation_ground": "recreation ground"
         },
         "leisure": {
+            "amusement_arcade": "amusement arcade",
             "garden": "garden",
             "pitch": "pitch",
             "park": "park",
             "playground": "playground",
-            "amusement_arcade": "amusement arcade"
+            "swimming_pool": "swimming pool"
         },
         "railway": {
             "station": "station"
