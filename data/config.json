@@ -26,6 +26,7 @@
         "bookmark": true
     },
     "targets": [
+        "AweSetouchi",
         "forest",
         "wayside_shrine",
         "historic",
@@ -36,7 +37,6 @@
         "park",
         "station",
         "worship",
-        "shop",
         "restaurant",
         "water"
     ],
@@ -56,7 +56,7 @@
         "targetName": "activity"
     },
     "splash": {
-        "url": ""
+        "url": "./image/awesplash.png"
     },
     "static": {
         "mode": false,
